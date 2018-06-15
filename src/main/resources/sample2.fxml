@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="firstAnchor" prefHeight="450.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller2">
+    <children>
+        <Label alignment="CENTER" layoutX="88.0" layoutY="185.0" prefHeight="131.0" prefWidth="583.0" rotate="-26.6" text="PASS-KEEPER">
+            <font>
+                <Font size="90.0" />
+            </font>
+        </Label>
+        <TabPane fx:id="tabPane" maxWidth="694.0" prefHeight="450.0" prefWidth="694.0" side="LEFT" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="328.0" prefWidth="351.0">
+                            <children>
+                                <GridPane layoutX="25.0" prefHeight="450.0" prefWidth="419.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Add your account details">
+                                            <font>
+                                                <Font name="System Bold" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="display1" prefHeight="50.0" promptText="Service" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font size="23.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="display2" prefHeight="50.0" promptText="Login" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="23.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="display3" prefHeight="50.0" prefWidth="74.0" promptText="Password" GridPane.rowIndex="3">
+                                            <font>
+                                                <Font size="23.0" />
+                                            </font>
+                                        </TextField>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#lockButton_saveToFile">
+                                       <graphic>
+                                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@icons/lock.png" />
+                                                        </image>
+                                                    </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                                    </children>
+                                </GridPane>
+                            </children></AnchorPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@icons/plusMind.png" />
+                            </image></ImageView>
+                    </graphic>
+                </Tab>
+                <Tab>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="575.0">
+                            <children>
+                                <GridPane layoutX="25.0" prefHeight="450.0" prefWidth="419.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="106.0" minHeight="3.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="198.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Give the name of the service">
+                                            <font>
+                                                <Font name="System Bold" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="display1Book" prefHeight="50.0" promptText="Service" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font size="23.0" />
+                                            </font>
+                                        </TextField>
+                              <TextArea fx:id="bigTextArea" prefHeight="200.0" prefWidth="200.0" promptText="Your account details" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </TextArea>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#unlockedButton">
+                                       <graphic>
+                                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@icons/unlock.png" />
+                                                        </image>
+                                                    </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                                    </children>
+                                </GridPane>
+                            </children></AnchorPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@icons/fileA.png" />
+                            </image></ImageView>
+                    </graphic>
+                </Tab>
+                <Tab>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="25.0" prefHeight="450.0" prefWidth="419.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Give user ID to remove">
+                                            <font>
+                                                <Font name="System Bold" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="displayIdToRemove" prefHeight="50.0" promptText="ID" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font size="23.0" />
+                                            </font>
+                                        </TextField>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#deleteButton">
+                                       <graphic>
+                                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@icons/binF.png" />
+                                                        </image>
+                                                    </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                                    </children>
+                                </GridPane>
+                            </children></AnchorPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@icons/bin.png" />
+                            </image></ImageView>
+                    </graphic>
+                </Tab>
+                <Tab onSelectionChanged="#handleCancle">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@icons/x.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
