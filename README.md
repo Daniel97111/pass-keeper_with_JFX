@@ -14,7 +14,7 @@ biger project in JavaFX
 
 ![jfx_3](https://user-images.githubusercontent.com/30508489/41492175-9c93782c-70fd-11e8-88fe-9982b70ea81c.png)
 ### Exceptions
-![git_edit](https://user-images.githubusercontent.com/30508489/41510836-b27570fe-726b-11e8-8909-ad28aec96176.png)
+![git_edit](https://user-images.githubusercontent.com/30508489/41510999-be762044-726e-11e8-8daa-a4ba670e20cd.png)
 ### Success
 ![git_success](https://user-images.githubusercontent.com/30508489/41510904-fcda8bba-726c-11e8-96e6-0027c0b1274e.png)
 
