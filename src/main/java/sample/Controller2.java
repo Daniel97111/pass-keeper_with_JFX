@@ -55,7 +55,7 @@ public class Controller2 {
 
     @FXML
     void lockButton_saveToFile(ActionEvent event) throws NoSuchPaddingException, UnsupportedEncodingException, NoSuchAlgorithmException {
-        Alert al = new Alert(Alert.AlertType.INFORMATION);
+        Alert al = new Alert(Alert.AlertType.WARNING);
         al.setTitle("Alert Wind");
         al.setHeaderText(null);
         Stage stage = (Stage) al.getDialogPane().getScene().getWindow();
@@ -85,16 +85,18 @@ public class Controller2 {
                 display1.clear();
                 display2.clear();
                 display3.clear();
+                al = new Alert(Alert.AlertType.INFORMATION);
+                al.setHeaderText(null);
                 al.setTitle("Success!");
                 al.setContentText("Service : " + entry.getService() + "\n\nAdded and Encrypted successfully\n:)");
 
                 al.show();
             } else {
-                System.out.println("Service with that name already exist\n");
+                System.out.println("Service: " + entry.getService() + " already exist\n");
                 /*display1.clear();
                 display2.clear();
                 display3.clear();*/
-                al.setContentText("Service with that name already exist");
+                al.setContentText("Service: " + entry.getService() + " already exist");
                 al.show();
             }
         } else {
