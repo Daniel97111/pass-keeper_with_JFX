@@ -11,7 +11,12 @@ biger project in JavaFX
 ![jfx_2](https://user-images.githubusercontent.com/30508489/41492166-9017fe42-70fd-11e8-8ef3-ea34286bd5f8.png)
 
 ### 3) In this page, you can add your account details that after clicking on padlock will be encrypted
+
 ![jfx_3](https://user-images.githubusercontent.com/30508489/41492175-9c93782c-70fd-11e8-88fe-9982b70ea81c.png)
+### Exception
+![git_edit](https://user-images.githubusercontent.com/30508489/41510836-b27570fe-726b-11e8-8909-ad28aec96176.png)
+### Success
+![git_success](https://user-images.githubusercontent.com/30508489/41510904-fcda8bba-726c-11e8-96e6-0027c0b1274e.png)
 
 ### 4) Here you can decrypt your account details that were previously added to this app in step #4
 ![jfx_4](https://user-images.githubusercontent.com/30508489/41492180-a6736b68-70fd-11e8-93da-92b61b5d1dec.png)
