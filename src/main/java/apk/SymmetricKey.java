@@ -40,7 +40,7 @@ public class SymmetricKey {
 
     public void encryptFile(File f)
             throws InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException {
-        System.out.println("Encrypting file: " + f.getName());
+        System.out.println("Encrypted successfully: " + f.getName());
         this.cipher.init(Cipher.ENCRYPT_MODE, this.secretKey);
         this.writeToFile(f);
     }

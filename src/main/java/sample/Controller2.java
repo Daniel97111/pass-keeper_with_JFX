@@ -7,10 +7,13 @@ import apk.model.PasswordSafe;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -49,32 +52,56 @@ public class Controller2 {
     @FXML
     private TextField displayIdToRemove;
 
+
     @FXML
     void lockButton_saveToFile(ActionEvent event) throws NoSuchPaddingException, UnsupportedEncodingException, NoSuchAlgorithmException {
+        Alert al = new Alert(Alert.AlertType.INFORMATION);
+        al.setTitle("Alert Wind");
+        al.setHeaderText(null);
+        Stage stage = (Stage) al.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("/icons/Key1.png"));
+
 
         String daneServ = display1.getText();
         String daneLog = display2.getText();
         String danePass = display3.getText();
 
         PasswordEntry entry = new PasswordEntry(0, daneServ, daneLog, danePass);
-        entry = passwordSafe.addEntries(entry.getService(), entry.getLogin(), entry.getPassword());
+        if (!daneServ.equals("") && !daneLog.equals("") && !danePass.equals("")) {
+            if (!passwordSafe.exists(daneServ)) {
+                entry = passwordSafe.addEntries(entry.getService(), entry.getLogin(), entry.getPassword());
+                fileSafe.saveToFile(Arrays.asList(entry), true);
+                symmetricKey = new SymmetricKey("*#@#$!@Egg", 16, "AES");
+                Arrays.asList(filelist).forEach(file -> {
+                    try {
+                        symmetricKey.encryptFile(file);
+                    } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException | IOException e) {
+                        System.err.println("Couldn't encrypt " + file.getName() + " : " + e.getMessage());
+                    }
+                });
+                //Show on the console only! ->
+                System.out.println("Ser: " + daneServ + "\nLog: " + daneLog + "\nPass: " + danePass + "\n");
+                //Clear displays out of everything
+                display1.clear();
+                display2.clear();
+                display3.clear();
+                al.setTitle("Success!");
+                al.setContentText("Service : " + entry.getService() + "\n\nAdded and Encrypted successfully\n:)");
 
-        fileSafe.saveToFile(Arrays.asList(entry), true);
-        symmetricKey = new SymmetricKey("*#@#$!@Egg", 16, "AES");
-        Arrays.asList(filelist).forEach(file -> {
-            try {
-                symmetricKey.encryptFile(file);
-            } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException
-                    | IOException e) {
-                System.err.println("Couldn't encrypt " + file.getName() + ": " + e.getMessage());
+                al.show();
+            } else {
+                System.out.println("Service with that name already exist\n");
+                /*display1.clear();
+                display2.clear();
+                display3.clear();*/
+                al.setContentText("Service with that name already exist");
+                al.show();
             }
-        });
-        //Show on the console only! ->
-        System.out.println("Ser: " + daneServ + "\nLog: " + daneLog + "\nPass: " + danePass + "\n");
-        //Clear displays out of everything
-        display1.clear();
-        display2.clear();
-        display3.clear();
+        } else {
+            System.out.println("Blank space\n");
+            al.setContentText("You have not fulfilled all text fields!\nTry again");
+            al.show();
+        }
     }
 
     @FXML

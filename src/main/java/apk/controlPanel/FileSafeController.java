@@ -21,8 +21,7 @@ public class FileSafeController {
         List<String> jsons = passwordEntries.stream()
                 .map(gson::toJson)
                 .collect(Collectors.toList());
-        File file = new File("src/main/resources/pass/new-pass-keeper-file.pwm");
-
+        File file = new File("/pass/new-pass-keeper-file.pwm");
         try {
             FileUtils.writeLines(file, jsons, append);
         } catch (IOException e) {

@@ -45,9 +45,9 @@ public class PasswordSafe {
     }
 
 
-    public boolean exists(String service, String login) {
+    public boolean exists(String service/*, String login*/) {
         return entries.values().stream()
-                .anyMatch(e -> e.getService().equals(service) && e.getLogin().equals(login));
+                .anyMatch(e -> e.getService().equals(service) /*&& e.getLogin().equals(login)*/);
     }
 
     public boolean existsId(Integer id) {

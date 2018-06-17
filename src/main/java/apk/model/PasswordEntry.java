@@ -19,13 +19,6 @@ public class PasswordEntry {
         this.password = password;
     }
 
-    public PasswordEntry(String service, String login, String password) {
-        this.service = service;
-        this.login = login;
-        this.password = password;
-    }
-
-
     public Integer getId() {
         return id;
     }
