@@ -108,12 +108,23 @@ public class Controller2 {
 
     @FXML
     void unlockedButton(ActionEvent event) {
+        Alert al = new Alert(Alert.AlertType.WARNING);
+        al.setTitle("Alert Wind");
+        al.setHeaderText(null);
+        Stage stage = (Stage) al.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("/icons/Key1.png"));
+
         String existServer = display1Book.getText();
 
-        bigTextArea.setText(passwordSafe.show(existServer));
-
-        System.out.println("podany serv: " + existServer + "\notrzymano: " + bigTextArea.getText() + "\n");
-        display1Book.clear();
+        if (passwordSafe.exists(existServer)) {
+            bigTextArea.setText(passwordSafe.show(existServer));
+            System.out.println("podany serv: " + existServer + "\notrzymano: " + bigTextArea.getText() + "\n");
+            display1Book.clear();
+        }else {
+            al.setContentText("Service: " + existServer + " does not exist");
+            al.show();
+            display1Book.clear();
+        }
     }
 
     @FXML
