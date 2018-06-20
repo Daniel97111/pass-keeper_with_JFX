@@ -20,6 +20,8 @@ biger project in JavaFX
 
 ### 4) Here you can decrypt your account details that were previously added to this app (in step #3)
 ![jfx_4](https://user-images.githubusercontent.com/30508489/41492180-a6736b68-70fd-11e8-93da-92b61b5d1dec.png)
+### Exception
+![book_alert](https://user-images.githubusercontent.com/30508489/41563817-19ccfd04-7351-11e8-8333-5469488b6db1.png)
 
 ### 5) The last option is deleting accounts by its id*. 
 #### *(Id is automatically assigned to each of your service after step #3)
