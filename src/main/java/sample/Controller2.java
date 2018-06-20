@@ -129,22 +129,34 @@ public class Controller2 {
 
     @FXML
     void deleteButton(ActionEvent event) throws NoSuchPaddingException, UnsupportedEncodingException, NoSuchAlgorithmException {
+        Alert al = new Alert(Alert.AlertType.WARNING);
+        al.setTitle("Alert Wind");
+        al.setHeaderText(null);
+        Stage stage = (Stage) al.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("/icons/Key1.png"));
+
         int idToRemove = Integer.parseInt(displayIdToRemove.getText());
-        passwordSafe.removeEntries(idToRemove);
-        fileSafe.saveToFile(new ArrayList<>(passwordSafe.all()), false);
 
-        symmetricKey = new SymmetricKey("*#@#$!@Egg", 16, "AES");
-        Arrays.asList(filelist).forEach(file -> {
-            try {
-                symmetricKey.encryptFile(file);
-            } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException
-                    | IOException e) {
-                System.err.println("Couldn't encrypt " + file.getName() + ": " + e.getMessage());
-            }
-        });
+        if (passwordSafe.existsId(idToRemove)){
 
-        System.out.println("id to remove: " + idToRemove + "\n");
-        displayIdToRemove.clear();
+            passwordSafe.removeEntries(idToRemove);
+            fileSafe.saveToFile(new ArrayList<>(passwordSafe.all()), false);
+
+            symmetricKey = new SymmetricKey("*#@#$!@Egg", 16, "AES");
+            Arrays.asList(filelist).forEach(file -> {
+                try {
+                    symmetricKey.encryptFile(file);
+                } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException
+                        | IOException e) {
+                    System.err.println("Couldn't encrypt " + file.getName() + ": " + e.getMessage());
+                }
+            });
+            System.out.println("id to remove: " + idToRemove + "\n");
+            displayIdToRemove.clear();
+        }else {
+            al.setContentText("Id: " + idToRemove + "\ndoes not exist");
+            al.show();
+        }
     }
 
     @FXML
