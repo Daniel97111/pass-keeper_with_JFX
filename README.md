@@ -26,4 +26,7 @@ biger project in JavaFX
 ### 5) The last option is deleting accounts by its id*. 
 #### *(Id is automatically assigned to each of your service after step #3)
 ![jfx_5](https://user-images.githubusercontent.com/30508489/41492186-aa395302-70fd-11e8-9716-631823d5b6f4.png)
+### Exception
+![delete](https://user-images.githubusercontent.com/30508489/41684558-0be30a4c-74de-11e8-9b99-1c637c6d7203.png)
+
 
