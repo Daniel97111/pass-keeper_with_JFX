@@ -152,6 +152,8 @@ public class Controller2 {
             al = new Alert(Alert.AlertType.INFORMATION);
             al.setHeaderText(null);
             al.setTitle("Success!");
+            al.setContentText("Id: " + idToRemove + " removed successfully");
+            al.show();
             System.out.println("id to remove: " + idToRemove + "\n");
             displayIdToRemove.clear();
         } else {
