@@ -52,7 +52,6 @@ public class Controller2 {
     @FXML
     private TextField displayIdToRemove;
 
-
     @FXML
     void lockButton_saveToFile(ActionEvent event) throws NoSuchPaddingException, UnsupportedEncodingException, NoSuchAlgorithmException {
         Alert al = new Alert(Alert.AlertType.WARNING);
@@ -60,7 +59,6 @@ public class Controller2 {
         al.setHeaderText(null);
         Stage stage = (Stage) al.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("/icons/Key1.png"));
-
 
         String daneServ = display1.getText();
         String daneLog = display2.getText();
@@ -120,7 +118,7 @@ public class Controller2 {
             bigTextArea.setText(passwordSafe.show(existServer));
             System.out.println("podany serv: " + existServer + "\notrzymano: " + bigTextArea.getText() + "\n");
             display1Book.clear();
-        }else {
+        } else {
             al.setContentText("Service: " + existServer + " does not exist");
             al.show();
             display1Book.clear();
@@ -130,14 +128,14 @@ public class Controller2 {
     @FXML
     void deleteButton(ActionEvent event) throws NoSuchPaddingException, UnsupportedEncodingException, NoSuchAlgorithmException {
         Alert al = new Alert(Alert.AlertType.WARNING);
-        al.setTitle("Alert Wind");
         al.setHeaderText(null);
+        al.setTitle("Alert Wind");
         Stage stage = (Stage) al.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("/icons/Key1.png"));
 
         int idToRemove = Integer.parseInt(displayIdToRemove.getText());
 
-        if (passwordSafe.existsId(idToRemove)){
+        if (passwordSafe.existsId(idToRemove)) {
 
             passwordSafe.removeEntries(idToRemove);
             fileSafe.saveToFile(new ArrayList<>(passwordSafe.all()), false);
@@ -151,9 +149,12 @@ public class Controller2 {
                     System.err.println("Couldn't encrypt " + file.getName() + ": " + e.getMessage());
                 }
             });
+            al = new Alert(Alert.AlertType.INFORMATION);
+            al.setHeaderText(null);
+            al.setTitle("Success!");
             System.out.println("id to remove: " + idToRemove + "\n");
             displayIdToRemove.clear();
-        }else {
+        } else {
             al.setContentText("Id: " + idToRemove + "\ndoes not exist");
             al.show();
         }
